@@ -40,21 +40,31 @@ window.addEventListener("scroll", () => {
 
 const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".nav-links");
+const overlay = document.querySelector(".overlay");
 
 menuBtn.addEventListener("click", () => {
+
     menu.classList.toggle("active");
+
+    overlay.classList.toggle("active");
+
 });
 
+overlay.addEventListener("click", () => {
 
-// ===============================
-// Close Menu After Click
-// ===============================
+    menu.classList.remove("active");
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+    overlay.classList.remove("active");
 
-    link.addEventListener("click", () => {
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
 
         menu.classList.remove("active");
+
+        overlay.classList.remove("active");
 
     });
 
