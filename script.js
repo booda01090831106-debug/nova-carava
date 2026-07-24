@@ -4,13 +4,12 @@
 
 const exploreBtn = document.querySelector(".hero button");
 
-if (exploreBtn) {
-    exploreBtn.addEventListener("click", () => {
-        document.getElementById("caravans").scrollIntoView({
-            behavior: "smooth"
-        });
+exploreBtn.addEventListener("click", () => {
+    document.getElementById("caravans").scrollIntoView({
+        behavior: "smooth"
     });
-}
+});
+
 
 // ===============================
 // Navbar Hide On Scroll
@@ -34,6 +33,7 @@ window.addEventListener("scroll", () => {
 
 });
 
+
 // ===============================
 // Mobile Menu
 // ===============================
@@ -42,23 +42,30 @@ const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".nav-links");
 const overlay = document.querySelector(".overlay");
 
-if (menuBtn && menu && overlay) {
+menuBtn.addEventListener("click", () => {
 
-    menuBtn.addEventListener("click", () => {
-        menu.classList.toggle("active");
-        overlay.classList.toggle("active");
-    });
+    menu.classList.toggle("active");
 
-    overlay.addEventListener("click", () => {
+    overlay.classList.toggle("active");
+
+});
+
+overlay.addEventListener("click", () => {
+
+    menu.classList.remove("active");
+
+    overlay.classList.remove("active");
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
         menu.classList.remove("active");
+
         overlay.classList.remove("active");
+
     });
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("active");
-            overlay.classList.remove("active");
-        });
-    });
-
-}
+});
