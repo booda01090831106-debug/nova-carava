@@ -693,13 +693,3 @@ body{
 .floating-contact a:hover{
     transform:scale(1.12);
 }
-@media (max-width:768px){
-
-    .hero{
-        background-image:url(photo/hero-mobile.jpg);
-        background-size:cover;
-        background-position:center;
-        min-height:100vh;
-    }
-
-}
