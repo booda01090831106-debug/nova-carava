@@ -1,19 +1,39 @@
-const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
+// ===============================
+// Explore Button
+// ===============================
 
-menuBtn.addEventListener("click",()=>{
+const exploreBtn = document.querySelector(".hero button");
 
-    navLinks.classList.toggle("active");
-
+exploreBtn.addEventListener("click", () => {
+    document.getElementById("caravans").scrollIntoView({
+        behavior: "smooth"
+    });
 });
 
-// يقفل القائمة بعد الضغط على أي رابط
-document.querySelectorAll(".nav-links a").forEach(link=>{
+// ===============================
+// Navbar Scroll Effect
+// ===============================
 
-    link.addEventListener("click",()=>{
+const header = document.querySelector("header");
 
-        navLinks.classList.remove("active");
+let lastScroll = 0;
 
-    });
+window.addEventListener("scroll", () => {
 
+    let currentScroll = window.pageYOffset;
+
+    if(currentScroll > lastScroll && currentScroll > 100){
+        header.classList.add("hide");
+    }else{
+        header.classList.remove("hide");
+    }
+
+    lastScroll = currentScroll;
+
+});
+const menuBtn = document.querySelector(".menu-btn");
+const menu = document.querySelector("nav ul");
+
+menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
 });
