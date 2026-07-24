@@ -16,12 +16,24 @@ exploreBtn.addEventListener("click", () => {
 
 const header = document.querySelector("header");
 
+let lastScroll = 0;
+
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        header.style.background = "#000";
-        header.style.boxShadow = "0 4px 15px rgba(0,0,0,.3)";
-    } else {
-        header.style.background = "#111";
-        header.style.boxShadow = "none";
+
+    let currentScroll = window.pageYOffset;
+
+    if(currentScroll > lastScroll && currentScroll > 100){
+        header.classList.add("hide");
+    }else{
+        header.classList.remove("hide");
     }
+
+    lastScroll = currentScroll;
+
+});
+const menuBtn = document.querySelector(".menu-btn");
+const menu = document.querySelector("nav ul");
+
+menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
 });
