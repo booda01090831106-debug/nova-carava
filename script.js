@@ -10,8 +10,9 @@ exploreBtn.addEventListener("click", () => {
     });
 });
 
+
 // ===============================
-// Navbar Scroll Effect
+// Navbar Hide On Scroll
 // ===============================
 
 const header = document.querySelector("header");
@@ -22,18 +23,39 @@ window.addEventListener("scroll", () => {
 
     let currentScroll = window.pageYOffset;
 
-    if(currentScroll > lastScroll && currentScroll > 100){
+    if (currentScroll > lastScroll && currentScroll > 100) {
         header.classList.add("hide");
-    }else{
+    } else {
         header.classList.remove("hide");
     }
 
     lastScroll = currentScroll;
 
 });
+
+
+// ===============================
+// Mobile Menu
+// ===============================
+
 const menuBtn = document.querySelector(".menu-btn");
-const menu = document.querySelector("nav ul");
+const menu = document.querySelector(".nav-links");
 
 menuBtn.addEventListener("click", () => {
     menu.classList.toggle("active");
+});
+
+
+// ===============================
+// Close Menu After Click
+// ===============================
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        menu.classList.remove("active");
+
+    });
+
 });
